@@ -59,6 +59,7 @@ namespace zad3FizzBuzzWebApp.Pages
             if (ModelState.IsValid)
             {
                 list1.date = DateTime.UtcNow.ToString("dd-MM-yyyy");
+                list1.UserName = HttpContext.User.Identity.Name;
                 if (list1.Num % 15 == 0)
                     list1.Outcome = "Otrzymano: FizzBuzz";
 

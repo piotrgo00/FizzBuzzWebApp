@@ -30,7 +30,7 @@ namespace zad3FizzBuzzWebApp
                 options.UseSqlServer(Configuration.GetConnectionString("FizzBuzzDB"));
             });
             services.AddRazorPages();
-
+            services.AddHttpContextAccessor();
             services.AddMemoryCache();
             services.AddSession();
         }
@@ -54,6 +54,7 @@ namespace zad3FizzBuzzWebApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
             app.UseEndpoints(endpoints =>

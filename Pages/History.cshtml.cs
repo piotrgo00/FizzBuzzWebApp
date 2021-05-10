@@ -24,7 +24,7 @@ namespace zad3FizzBuzzWebApp.Pages
         {
             var HistoryQuery = (from List1 in _context.List1
                                 orderby List1.Id descending
-                                select List1).Take(10);
+                                select List1).Take(20);
             History = HistoryQuery.ToList();
         }
     }

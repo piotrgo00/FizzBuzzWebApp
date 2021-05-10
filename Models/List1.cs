@@ -18,5 +18,7 @@ namespace zad3FizzBuzzWebApp.Models
 
         [MaxLength(100)]
         public string date { get; set; }
+
+        public string UserName { get; set; }
     }
 }

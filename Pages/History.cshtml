@@ -2,11 +2,19 @@
 @model zad3FizzBuzzWebApp.Pages.HistoryModel
 @{
 }
-@foreach (var item in Model.History)
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
 {
-<p>
-    @Html.DisplayFor(modelItem => item.Num) |
-    @Html.DisplayFor(modelItem => item.Outcome) |
-    @Html.DisplayFor(modelItem => item.date)
-</p>
+    @foreach (var item in Model.History)
+    {
+        <p>
+            @Html.DisplayFor(modelItem => item.Num) |
+            @Html.DisplayFor(modelItem => item.Outcome) |
+            @Html.DisplayFor(modelItem => item.date)
+        </p>
+    }
 }
