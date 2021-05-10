@@ -1,0 +1,12 @@
+﻿@page
+@model zad3FizzBuzzWebApp.Pages.HistoryModel
+@{
+}
+@foreach (var item in Model.History)
+{
+<p>
+    @Html.DisplayFor(modelItem => item.Num) |
+    @Html.DisplayFor(modelItem => item.Outcome) |
+    @Html.DisplayFor(modelItem => item.date)
+</p>
+}
