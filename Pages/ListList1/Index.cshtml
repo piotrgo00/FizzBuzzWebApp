@@ -1,48 +1,59 @@
 ﻿@page
 @model zad3FizzBuzzWebApp.Pages.ListList1.IndexModel
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
 }
+@if (SignInManager.IsSignedIn(User))
+{
+    <h1>Index</h1>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.List1[0].Num)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.List1[0].Outcome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.List1[0].date)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.List1) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Num)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Outcome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.date)
-            </td>
-            <td>
-                <!--<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |-->
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.List1[0].Num)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.List1[0].Outcome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.List1[0].date)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.List1)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Num)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Outcome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    <td>
+                        <!--<a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |-->
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
-    </tbody>
-</table>
+else
+{
+    <h3>You don't have permission to see this page</h3>
+}
