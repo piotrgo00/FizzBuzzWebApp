@@ -1,0 +1,25 @@
+﻿@page
+@model zad3FizzBuzzWebApp.Pages.ListModel
+@{
+    ViewData["Title"] = "List";
+}
+
+
+<h1 class="display-4">Dane w sesji</h1>
+@if (Model.list != null)
+{
+    <p>@Html.DisplayNameFor(model => Model.list.Num): @Model.list.Num</p>
+    <p>@Html.DisplayNameFor(model => Model.list.Outcome): @Model.list.Outcome</p>
+    <p>@Html.DisplayNameFor(model => Model.list.date): @Model.list.date</p>
+}
+
+
+@{/*
+      <p>Dane w sesji</p>
+      @foreach (var fb in Model.lista)
+      {
+          <p>@Html.DisplayNameFor(model => Model.list.Num): @Model.list.Num</p>
+          <p>@Html.DisplayNameFor(model => Model.list.Outcome): @Model.list.Outcome</p>
+          <p>@Html.DisplayNameFor(model => Model.list.date): @Model.list.date</p>
+      }*/
+}

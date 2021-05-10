@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="post">
+        <label asp-for="list1.Num"></label>
+        <b><span asp-validation-for="list1.Num" class="text-danger"></span></b>
+        <input asp-for="list1.Num"><br />
+        <button type="submit">Zatwierdź</button>
+    </form>
+    @if (Model.list1 != null)
+    {
+        <p>@Model.list1.Outcome</p>
+    }
+</div>
